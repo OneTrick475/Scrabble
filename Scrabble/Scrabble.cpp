@@ -33,6 +33,15 @@ struct Scrabble{
 			}
 		}
 
+		void generateRandomLetters(){
+			srand(time(0));
+
+			for(int i = 0; i < numOfLetters; ++i){
+				char letter = 'a' + (rand() % 26);
+				letters.push_back(letter);
+			}
+		}
+
 		bool wordExists(string const &word){
 			return words.find(word) != words.end();
 		}
@@ -59,6 +68,34 @@ struct Scrabble{
 				cout << letter << ' ';
 			}
 			cout << '\n';
+		}
+
+		void settings(){
+			cout << "1. Change Number of Letters\n2. Change Number of Rounds\n";
+
+			int option = getInput(1, 2);
+
+			if (option == 1) {
+				cout << "Enter the number of letters\n";
+				numOfLetters = getInput(1, 26);
+			}
+			else {
+				cout << "Enter the number of rounds\n";
+				numOfRounds = getInput(1, 30);
+			}
+		}
+
+		int getInput(int min, int max){
+			int option;
+
+			cin >> option;
+			while(cin.fail() || option < min || option > max){
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				printf("Invalid option. Enter a number between %d and %d\n", min, max);
+				cin >> option;
+			}
+			return option;
 		}
 
 		bool lettersAreInvalid(const string &word){
@@ -109,43 +146,6 @@ struct Scrabble{
 			printf("Your total points are %d\n", score);
 			letters.clear();
 			score = 0;
-		}
-
-		void generateRandomLetters(){
-			srand(time(0));
-
-			for(int i = 0; i < numOfLetters; ++i){
-				char letter = 'a' + (rand() % 26);
-				letters.push_back(letter);
-			}
-		}
-
-		void settings(){
-			cout << "1. Change Number of Letters\n2. Change Number of Rounds\n";
-
-			int option = getInput(1, 2);
-
-			if (option == 1) {
-				cout << "Enter the number of letters\n";
-				numOfLetters = getInput(1, 26);
-			}
-			else {
-				cout << "Enter the number of rounds\n";
-				numOfRounds = getInput(1, 30);
-			}
-		}
-
-		int getInput(int min, int max){
-			int option;
-
-			cin >> option;
-			while(cin.fail() || option < min || option > max){
-				cin.clear();
-				cin.ignore(numeric_limits<streamsize>::max(), '\n');
-				printf("Enter a number between %d and %d\n", min, max);
-				cin >> option;
-			}
-			return option;
 		}
 
 	public:
