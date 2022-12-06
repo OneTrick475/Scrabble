@@ -2,8 +2,10 @@
 #include <fstream>
 #include <string>
 #include <unordered_set>
+#include <map>
 #include <time.h>
 #include <cstdlib>
+
 
 using namespace std;
 
@@ -59,24 +61,48 @@ struct Scrabble{
 			cout << '\n';
 		}
 
+		bool lettersAreInvalid(const string &word){
+			map<char, int> lettersMap;
+
+			for (char letter : letters) {
+				if (lettersMap.find(letter) != lettersMap.end())
+					lettersMap[letter] = 1;
+				else
+					++lettersMap[letter];
+			}
+
+			for (char letter : word) {
+				if (lettersMap.find(letter) == lettersMap.end() || lettersMap[letter] == 0)
+					return true;
+				--lettersMap[letter];
+			}
+
+			return false;
+		}
+
+		string getWord(){
+			string word;
+			cin >> word;
+
+			while (!wordExists(word) || lettersAreInvalid(word)) {
+				cout << "Invalid Word\n";
+				printLetters();
+				cin >> word;
+			}
+			return word;
+		}
+
 		void startGame(){
-			genereteRandomLetters();
+			generateRandomLetters();
 
 			for(int i = 1; i<=numOfRounds; ++i){
 				printf("Round %d. ", i);
 				printLetters();
 
-				string word;
-
-				cin >> word;
-
-				while(!wordExists(word)){
-					cout << "Invalid Word\n";
-					printLetters();
-					cin >> word;
-				}
+				string word = getWord();
 
 				score += word.length();
+
 				if(i != numOfRounds)
 					printf("Score: %d\n", score);
 			}
@@ -85,7 +111,7 @@ struct Scrabble{
 			score = 0;
 		}
 
-		void genereteRandomLetters(){
+		void generateRandomLetters(){
 			srand(time(0));
 
 			for(int i = 0; i < numOfLetters; ++i){
