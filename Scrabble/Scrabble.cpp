@@ -102,7 +102,7 @@ struct Scrabble{
 			map<char, int> lettersMap;
 
 			for (char letter : letters) {
-				if (lettersMap.find(letter) != lettersMap.end())
+				if (lettersMap.find(letter) == lettersMap.end())
 					lettersMap[letter] = 1;
 				else
 					++lettersMap[letter];
