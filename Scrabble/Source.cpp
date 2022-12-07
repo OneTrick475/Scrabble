@@ -1,9 +1,9 @@
 #include <iostream>
-#include "Scrabble.cpp"
+#include "Scrabble.h"
 
 
 int main(){
 	Scrabble scrabble;
-
+	
 	scrabble.play();
 }
