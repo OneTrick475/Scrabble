@@ -109,15 +109,21 @@ bool Scrabble::lettersAreInvalid(const string &word){
 	return false;
 }
 
+bool Scrabble::wordIsUsed(const std::string& word) {
+	return usedWords.find(word) != usedWords.end();
+}
+
 string Scrabble::getWord(){
 	string word;
 	cin >> word;
 
-	while (!wordExists(word) || lettersAreInvalid(word)) {
-				cout << "Invalid Word\n";
-				printLetters();
-				cin >> word;
-			}
+	while (!wordExists(word) || lettersAreInvalid(word) || wordIsUsed(word)) {
+		string messege = wordIsUsed(word) ? "Word has already been used\n" : "Invalid Word\n";
+		cout << messege;
+		printLetters();
+		cin >> word;
+	}
+	usedWords.insert(word);
 	return word;
 }
 
@@ -125,16 +131,16 @@ void Scrabble::startGame(){
 	generateRandomLetters();
 
 	for(int i = 1; i<=numOfRounds; ++i){
-				printf("Round %d. ", i);
-				printLetters();
+		printf("Round %d. ", i);
+		printLetters();
 
-				string word = getWord();
+		string word = getWord();
 
-				score += word.length();
+		score += word.length();
 
-				if(i != numOfRounds)
-					printf("Score: %d\n", score);
-			}
+		if(i != numOfRounds)
+			printf("Score: %d\n", score);
+	}
 	printf("Your total points are %d\n", score);
 	letters.clear();
 	score = 0;

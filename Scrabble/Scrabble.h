@@ -9,6 +9,7 @@ struct Scrabble {
 	private:
 		std::unordered_set<std::string> words;
 		std::vector<char> letters;
+		std::unordered_set<std::string> usedWords;
 		int numOfLetters = 10;
 		int numOfRounds = 10;
 		int score = 0;
@@ -22,6 +23,7 @@ struct Scrabble {
 		void settings();
 		int getInput(int min, int max);
 		bool lettersAreInvalid(const std::string& word);
+		bool wordIsUsed(const std::string& word);
 		std::string getWord();
 		void startGame();
 
