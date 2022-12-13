@@ -143,6 +143,7 @@ void Scrabble::startGame(){
 	}
 	printf("Your total points are %d\n", score);
 	letters.clear();
+	usedWords.clear();
 	score = 0;
 }
 
