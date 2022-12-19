@@ -9,7 +9,7 @@ Upon starting the game you are given the following options
 3. Add Word
 4. Exit
 
-Choosing 1 will start a new game for the chosen(or default) number of rounds or letter. Random letters will be genereted and printed 
+Choosing 1 will start a new game for the chosen(or default) number of rounds and letters. Random letters will be genereted and printed 
 
   Round 1. Available letters: x a i r o e z x e m
 
