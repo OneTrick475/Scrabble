@@ -95,7 +95,7 @@ bool Scrabble::lettersAreInvalid(const string &word){
 
 	for (char letter : letters) {
 		if (lettersMap.find(letter) == lettersMap.end())
-					lettersMap[letter] = 1;
+			lettersMap[letter] = 1;
 		else
 			++lettersMap[letter];
 	}
