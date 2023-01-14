@@ -22,7 +22,7 @@ From which you can make a word
 You can only use the letters available, and as many times as the letter is given(per round, meaning that you can use the same letter on the next round)
 You cannot use the same word in multiple rounds. The number of points is equal to the number of letters used
 
-Using an invalid/used word or using invalid letters will give you a proper messege and you can replay the round(there is not point deduction)
+Using an invalid/used word or using invalid letters will give you a proper messege and you can replay the round(there is no point deduction)
 
 The game finishes when all rounds have been passed. You see your score and you go back to the main menu
 
