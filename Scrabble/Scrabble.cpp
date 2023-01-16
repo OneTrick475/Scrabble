@@ -155,6 +155,8 @@ void Scrabble::startGame(){
 
 		if(i != numOfRounds)
 			printf("Score: %d\n", score);
+		letters.clear();
+		generateRandomLetters();
 	}
 	printf("Your total points are %d\n", score);
 	letters.clear();
