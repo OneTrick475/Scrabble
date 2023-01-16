@@ -9,7 +9,7 @@ Upon starting the game you are given the following options
 3. Add Word
 4. Exit
 
-Choosing 1 will start a new game for the chosen(or default) number of rounds and letters. Random letters will be genereted and printed 
+Choosing 1 will start a new game for the chosen(or default) number of rounds and letters. Random letters will be genereted and printed(resets every round) 
 
   Round 1. Available letters: x a i r o e z x e m
 
@@ -17,7 +17,7 @@ From which you can make a word
 
   air (the word we have chosen)
   Score: 3
-  Round 2. Available letters: x a i r o e z x e m
+  Round 2. Available letters: a d g a h h r b n c
 
 You can only use the letters available, and as many times as the letter is given(per round, meaning that you can use the same letter on the next round)
 You cannot use the same word in multiple rounds. The number of points is equal to the number of letters used
